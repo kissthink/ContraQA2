@@ -325,7 +325,8 @@ def convert_examples_to_features(examples, label_list, max_seq_length, tokenizer
 # In[14]:
 
 
-device = torch.device("cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu")
+# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = "cpu"
 n_gpu = torch.cuda.device_count()
 
 
