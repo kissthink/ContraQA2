@@ -91,11 +91,6 @@ class InputExample(object):
 # In[7]:
 
 
-ex = InputExample(guid=0,
-                  text_a=df.sentence1.values[0],
-                  text_b=df.sentence2.values[0],
-                  label=df.label.values[0])
-
 
 # In[8]:
 
@@ -284,9 +279,8 @@ def convert_examples_to_features(examples, label_list, max_seq_length, tokenizer
 
 # In[14]:
 
-toy = True
-
 for i in range(10):
+    print(i)
     i  += 1
     df_train = pd.read_csv("fixed_data/boolean{}_train.csv".format(i))
     simple_pre_process_text_df(df_train, key="sentence1")
@@ -295,10 +289,6 @@ for i in range(10):
     simple_pre_process_text_df(df_dev, key="sentence1")
     simple_pre_process_text_df(df_dev, key="sentence2")
     name = "boolean_{}".format(i)
-    if toy:
-        df_train = df_train.head(100)
-        df_dev = df_dev.head(100)
-
 
 
 

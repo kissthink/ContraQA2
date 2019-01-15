@@ -88,16 +88,7 @@ class InputExample(object):
         self.label = label
 
 
-# In[7]:
 
-
-ex = InputExample(guid=0,
-                  text_a=df.sentence1.values[0],
-                  text_b=df.sentence2.values[0],
-                  label=df.label.values[0])
-
-
-# In[8]:
 
 
 class InputFeatures(object):
@@ -284,10 +275,11 @@ def convert_examples_to_features(examples, label_list, max_seq_length, tokenizer
 
 # In[14]:
 
-toy = True
+toy = False
 
-for i in range(10):
-    i  += 1
+df_names =[str(i+1) for i in range(10)] + ["OR", "AND", "ALL"]
+
+for i in df_names:
     df_train = pd.read_csv("fixed_data/boolean{}_train.csv".format(i))
     simple_pre_process_text_df(df_train, key="sentence1")
     simple_pre_process_text_df(df_train, key="sentence2")
